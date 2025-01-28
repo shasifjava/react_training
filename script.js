@@ -1,41 +1,54 @@
-const username = document.getElementById("username");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const confirmPw = document.getElementById("confirmpw");
-const form = document.getElementById("form");
-const unErr = document.getElementById("errUN");
-const emErr = document.getElementById("errEMAIL");
-const pwErr = document.getElementById("errPW");
-const cpwErr = document.getElementById("errCPW");
+const usernameField = document.getElementById("usernameField");
+const emailField = document.getElementById("emailField");
+const passwordField = document.getElementById("passwordField");
+const confirmPasswordField = document.getElementById("confirmPasswordField");
 
+function showError(element, message) {
+  element.innerHTML = message;
+}
 
 function validateForm() {
-    unErr.innerHTML = "";
-    emErr.innerHTML = "";
-    pwErr.innerHTML = "";
-    cpwErr.innerHTML = "";
-  if (username.value == undefined || username.value == "") {
-    unErr.innerHTML = "Please enter valid username";
+  showError(usernameField.querySelector(".err"), "");
+  showError(emailField.querySelector(".err"), "");
+  showError(passwordField.querySelector(".err"), "");
+  showError(confirmPasswordField.querySelector(".err"), "");
+  let isValid = true;
 
-    return false;
-  }
-  console.log(email.value)
-  if (email.value == undefined || email.value == "") {
-    emErr.innerHTML = "Please enter valid email";
-
-    return false;
-  }
-  console.log(password.value)
-  if (password.value == undefined || password.value == "") {
-    pwErr.innerHTML = "Please enter valid password";
-
-    return false;
-  }
-  console.log(confirmPw.value)
-  if (password.value !== confirmPw.value) {
-    cpwErr.innerHTML = "password don't match try again";
-
-    return false;
+  // validate username
+  const username = usernameField.querySelector("#username").value;
+  if (username == undefined || username == "") {
+    showError(
+      usernameField.querySelector(".err"),
+      "Please enter valid username"
+    );
+    isValid = false;
   }
 
+  // validate email
+  const email = emailField.querySelector("#email").value;
+  if (email == undefined || email == "") {
+    showError(emailField.querySelector(".err"), "Please enter valid email");
+    isValid = false;
+  }
+
+  // validate password
+  const password = passwordField.querySelector("#password").value;
+  if (password == undefined || password == "") {
+    showError(passwordField.querySelector(".err"), "Please enter password");
+    isValid = false;
+  }
+
+  // validate confirm password
+  const confirmPw = confirmPasswordField.querySelector("#confirmpw").value;
+  if (password !== confirmPw) {
+    showError(
+      confirmPasswordField.querySelector(".err"),
+      "password dosn't match"
+    );
+    isValid = false;
+  }
+  if (isValid) {
+    alert("form submitted");
+  }
+  return isValid;
 }

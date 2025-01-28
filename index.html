@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validation with javaScript</title>
 
     <style>
-        div{
-            color: red;
-        }
+      .err {
+        color: red;
+        font-size: 0.9rem;
+      }
     </style>
-</head>
-<!-- file:///Users/macbookpro/Documents/Training/loggedin.html -->
-<body>
+  </head>
+  <body>
     <form id="form" action="" method="post" onsubmit="return validateForm()">
-        <label for="username" >First Name </label> <br/>
-        <input type="text" id="username" name="username" placeholder="Enter your username" /> <br/>
-        <div id="errUN"></div>
-        <label for="email" >Email</label> <br/>
-        <input type="email" id="email" name="email" placeholder="Enter your email" /> <br/>
-        <div id="errEMAIL"></div>
-        <label for="password">Password</label> <br/>
-        <input type="password" id="password" name="password" placeholder="Enter your password" /> <br/>
-        <div id="errPW"></div>
-        <label for="confirmpw">Last Name</label> <br/>
-        <input type="password" id="confirmpw" name="confirmpw"  placeholder="please confirm your password" /> <br/>
-        <div id="errCPW"></div>
-        <button type="submit" >Submit</button>
+      <div id="usernameField">
+        <label for="username">First Name </label> <br />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+        />
+        <br />
+        <span class="err"></span>
+      </div>
+      <div id="emailField">
+        <label for="email">Email</label> <br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+        />
+        <br />
+        <span class="err"></span>
+      </div>
+      <div id="passwordField">
+        <label for="password">Password</label> <br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+        <br />
+        <span class="err"></span>
+      </div>
+      <div id="confirmPasswordField">
+        <label for="confirmpw">Last Name</label> <br />
+        <input
+          type="password"
+          id="confirmpw"
+          name="confirmpw"
+          placeholder="please confirm your password"
+        />
+        <br />
+        <span class="err"></span>
+      </div>
 
+      <button type="submit">Submit</button>
     </form>
-    <div id="box"></div>
-    <Script src="./script.js"></Script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
